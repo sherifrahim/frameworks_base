@@ -40,4 +40,8 @@
     <!-- Power menu controls -->
     <string name="quick_controls_subtitle">Karten für deine verbundenen Geräte hinzufügen</string>
 
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor links</string>
+    <string name="accessibility_dpad_right">Cursor rechts</string>
+
 </resources>
