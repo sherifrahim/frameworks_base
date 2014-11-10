@@ -211,6 +211,7 @@ import com.android.systemui.statusbar.policy.KeyguardUserSwitcherController;
 import com.android.systemui.statusbar.policy.KeyguardUserSwitcherView;
 import com.android.systemui.statusbar.policy.OnHeadsUpChangedListener;
 import com.android.systemui.statusbar.window.StatusBarWindowStateController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.unfold.SysUIUnfoldComponent;
 import com.android.systemui.util.Compile;
 import com.android.systemui.util.LargeScreenUtils;
@@ -303,6 +304,9 @@ public final class NotificationPanelViewController extends PanelViewController {
     private static final String COUNTER_PANEL_OPEN = "panel_open";
     private static final String COUNTER_PANEL_OPEN_QS = "panel_open_qs";
     private static final String COUNTER_PANEL_OPEN_PEEK = "panel_open_peek";
+
+    private static final String STATUS_BAR_QUICK_QS_PULLDOWN =
+            Settings.Secure.STATUS_BAR_QUICK_QS_PULLDOWN;
 
     private static final Rect M_DUMMY_DIRTY_RECT = new Rect(0, 0, 1, 1);
     private static final Rect EMPTY_RECT = new Rect();
@@ -660,6 +664,10 @@ public final class NotificationPanelViewController extends PanelViewController {
 
     private final NPVCDownEventState.Buffer mLastDownEvents;
 
+    private final TunerService mTunerService;
+
+    private boolean mOneFingerQuickSettingsIntercept;
+
     private final Runnable mAnimateKeyguardBottomAreaInvisibleEndRunnable =
             () -> mKeyguardBottomArea.setVisibility(View.GONE);
 
@@ -777,7 +785,9 @@ public final class NotificationPanelViewController extends PanelViewController {
             SystemClock systemClock,
             CameraGestureHelper cameraGestureHelper,
             KeyguardBottomAreaViewModel keyguardBottomAreaViewModel,
-            KeyguardBottomAreaInteractor keyguardBottomAreaInteractor) {
+            KeyguardBottomAreaInteractor keyguardBottomAreaInteractor,
+            TunerService tunerService,
+            Context context) {
         super(view,
                 falsingManager,
                 dozeLog,
@@ -818,6 +828,7 @@ public final class NotificationPanelViewController extends PanelViewController {
         mKeyguardQsUserSwitchComponentFactory = keyguardQsUserSwitchComponentFactory;
         mKeyguardUserSwitcherComponentFactory = keyguardUserSwitcherComponentFactory;
         mFragmentService = fragmentService;
+        mTunerService = tunerService;
         mSettingsChangeObserver = new SettingsChangeObserver(handler);
         mSplitShadeEnabled =
                 LargeScreenUtils.shouldUseSplitNotificationShade(mResources);
@@ -2178,7 +2189,18 @@ public final class NotificationPanelViewController extends PanelViewController {
                         MotionEvent.BUTTON_SECONDARY) || event.isButtonPressed(
                         MotionEvent.BUTTON_TERTIARY));
 
-        return twoFingerDrag || stylusButtonClickDrag || mouseButtonClickDrag;
+        final float w = mView.getMeasuredWidth();
+        final float x = event.getX();
+        float region = w * 1.f / 4.f; // TODO overlay region fraction?
+        boolean showQsOverride = false;
+
+        if (mOneFingerQuickSettingsIntercept) {
+                showQsOverride = mView.isLayoutRtl() ? x < region : w - region < x;
+        }
+
+        showQsOverride &= mBarState == StatusBarState.SHADE;
+
+        return twoFingerDrag || showQsOverride || stylusButtonClickDrag || mouseButtonClickDrag;
     }
 
     private void handleQsDown(MotionEvent event) {
@@ -4779,7 +4801,8 @@ public final class NotificationPanelViewController extends PanelViewController {
         positionClockAndNotifications(true /* forceUpdate */);
     }
 
-    private class OnAttachStateChangeListener implements View.OnAttachStateChangeListener {
+    private class OnAttachStateChangeListener implements View.OnAttachStateChangeListener,
+            TunerService.Tunable {
         @Override
         public void onViewAttachedToWindow(View v) {
             mFragmentService.getFragmentHostManager(mView)
@@ -4787,6 +4810,7 @@ public final class NotificationPanelViewController extends PanelViewController {
             mStatusBarStateController.addCallback(mStatusBarStateListener);
             mStatusBarStateListener.onStateChanged(mStatusBarStateController.getState());
             mConfigurationController.addCallback(mConfigurationListener);
+            mTunerService.addTunable(this, STATUS_BAR_QUICK_QS_PULLDOWN);
             // Theme might have changed between inflating this view and attaching it to the
             // window, so
             // force a call to onThemeChanged
@@ -4803,7 +4827,15 @@ public final class NotificationPanelViewController extends PanelViewController {
                     .removeTagListener(QS.TAG, mFragmentListener);
             mStatusBarStateController.removeCallback(mStatusBarStateListener);
             mConfigurationController.removeCallback(mConfigurationListener);
+            mTunerService.removeTunable(this);
             mFalsingManager.removeTapListener(mFalsingTapListener);
+        }
+
+        @Override
+        public void onTuningChanged(String key, String newValue) {
+            if (STATUS_BAR_QUICK_QS_PULLDOWN.equals(key)) {
+                mOneFingerQuickSettingsIntercept = TunerService.parseIntegerSwitch(newValue, true);
+            }
         }
     }
 
