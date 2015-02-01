@@ -81,4 +81,7 @@
     <string name="qs_data_sim_1">SIM 1</string>
     <string name="qs_data_sim_2">SIM 2</string>
 
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+
 </resources>
