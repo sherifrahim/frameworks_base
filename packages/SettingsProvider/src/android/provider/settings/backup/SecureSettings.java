@@ -220,5 +220,6 @@ public class SecureSettings {
         Settings.Secure.BLUETOOTH_LE_BROADCAST_APP_SOURCE_NAME,
         Settings.Secure.GESTURE_NAVBAR_LENGTH_MODE,
         Settings.Secure.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT,
+        Settings.Secure.POWER_MENU_HIDE_ON_SECURE,
     };
 }
