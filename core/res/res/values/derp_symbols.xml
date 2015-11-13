@@ -188,4 +188,7 @@
   <!-- SystemUI Restart -->
   <java-symbol type="string" name="systemui_restart_title" />
   <java-symbol type="string" name="systemui_restart_message" />
+
+  <!-- Vendor mismatch fingerprint warning -->
+  <java-symbol type="string" name="system_error_vendorprint" />
 </resources>
