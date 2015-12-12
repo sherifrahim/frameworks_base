@@ -56,6 +56,13 @@
     <!-- Power menu controls -->
     <string name="quick_controls_subtitle">Add controls for your connected devices</string>
 
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
+
     <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">Anti flicker</string>
 
