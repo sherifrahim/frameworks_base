@@ -74,6 +74,13 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lesemodus angeschaltet.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lesemodus ausgeschaltet.</string>
 
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Synchronisation</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisierung aus.</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisierung an.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronisierung ist ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronisierung ist eingeschaltet.</string>
+
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Battery Share</string>
     <string name="quick_settings_powershare_off_powersave_label">Battery Share aus\nEnergiesparmodus</string>
