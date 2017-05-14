@@ -6425,6 +6425,38 @@ public final class Settings {
         public static final String ENABLE_FLOATING_ROTATION_BUTTON = "enable_floating_rotation_button";
 
         /**
+         * Statusbar logo
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO = "status_bar_logo";
+
+        /**
+         * Statusbar logo color setting
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO_COLOR = "status_bar_logo_color";
+
+        /**
+         * Position of Status bar logo
+         * 0 - Left (default)
+         * 1 - Right
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO_POSITION = "status_bar_logo_position";
+
+        /**
+         * Statusbar logo custom style
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
+
+        /**
+         * Statusbar logo accent color setting
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO_COLOR_ACCENT = "status_bar_logo_color_accent";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -6583,6 +6615,11 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SENSOR_BLOCK);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_POSITION);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_STYLE);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR_ACCENT);
         }
 
         /**
