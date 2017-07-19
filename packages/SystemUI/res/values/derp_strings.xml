@@ -130,6 +130,9 @@
     <!-- Name of the data saver status bar icon. -->
     <string name="status_bar_data_saver">Data saver</string>
 
+    <!-- Name of the VoLTE/VoWiFi icon. -->
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Power off</string>
     <string name="quick_settings_reboot_label">Reboot</string>
