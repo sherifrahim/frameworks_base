@@ -60,4 +60,7 @@
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB-Tethering</string>
 
+    <!-- Title of statusbar tuner -->
+    <string name="status_bar_icons">Symbole in der Statusleiste</string>
+
 </resources>
