@@ -162,4 +162,6 @@
     <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Schnellladen (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
     <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Schnellladen</string>
 
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Musikerkennung</string>
 </resources>

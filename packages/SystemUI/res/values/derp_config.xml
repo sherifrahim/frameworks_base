@@ -29,7 +29,7 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_extra" translatable="false">
-        ambient_display,aod,caffeine,dataswitch,heads_up,livedisplay,reading_mode,anti_flicker,reboot,powershare,sync,usb_tether
+        ambient_display,aod,caffeine,dataswitch,heads_up,livedisplay,reading_mode,anti_flicker,reboot,powershare,soundsearch,sync,usb_tether
     </string>
 
     <!-- Doze: does the double tap sensor need a proximity check? -->
