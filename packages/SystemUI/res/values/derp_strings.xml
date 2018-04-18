@@ -136,4 +136,7 @@
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
 
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+
 </resources>
