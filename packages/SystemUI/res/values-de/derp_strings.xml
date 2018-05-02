@@ -106,7 +106,8 @@
     <!-- Name of the data saver status bar icon. -->
     <string name="status_bar_data_saver">Datensparmodus</string>
 
-    <!-- Reboot/Recovery QS tile -->
+    <!-- Poweroff/Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">Ausschalten</string>
     <string name="quick_settings_reboot_label">Neustart</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
 
