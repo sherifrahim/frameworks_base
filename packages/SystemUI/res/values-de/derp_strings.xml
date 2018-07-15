@@ -203,4 +203,7 @@
 
     <!-- Autobrightness tile -->
     <string name="quick_settings_autobrightness_label">Automatische Helligkeit</string>
+
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Uhr</string>
 </resources>
