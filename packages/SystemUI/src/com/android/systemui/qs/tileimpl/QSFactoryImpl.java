@@ -40,6 +40,7 @@ import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorCorrectionTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
+import com.android.systemui.qs.tiles.CompassTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
@@ -112,6 +113,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<OneHandedModeTile> mOneHandedModeTileProvider;
     private final Provider<DreamTile> mDreamTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
+    private final Provider<CompassTile> mCompassTileProvider;
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
@@ -163,6 +165,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ColorCorrectionTile> colorCorrectionTileProvider,
             Provider<DreamTile> dreamTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
+            Provider<CompassTile> compassTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
@@ -209,6 +212,7 @@ public class QSFactoryImpl implements QSFactory {
         mColorCorrectionTileProvider = colorCorrectionTileProvider;
         mDreamTileProvider = dreamTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
+        mCompassTileProvider = compassTileProvider;
         mUsbTetherTileProvider = usbTetherTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
@@ -298,6 +302,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mDreamTileProvider.get();
             case "caffeine":
                 return mCaffeineTileProvider.get();
+            case "compass":
+                return mCompassTileProvider.get();
             case "usb_tether":
                 return mUsbTetherTileProvider.get();
             case "dataswitch":
