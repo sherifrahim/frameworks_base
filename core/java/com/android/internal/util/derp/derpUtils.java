@@ -27,6 +27,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.hardware.fingerprint.FingerprintManager;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.PowerManager;
@@ -166,6 +168,12 @@ public class derpUtils {
                 // do nothing.
             }
         }
+    }
+
+    public static boolean deviceHasCompass(Context ctx) {
+        SensorManager sm = (SensorManager) ctx.getSystemService(Context.SENSOR_SERVICE);
+        return sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null
+                && sm.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) != null;
     }
 
     /* returns whether the device has a centered display cutout or not. */
