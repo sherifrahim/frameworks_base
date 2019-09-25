@@ -888,6 +888,10 @@ public class NavigationBarView extends FrameLayout implements TunerService.Tunab
         updateRotationButton();
     }
 
+    void onSettingsChanged() {
+        mEdgeBackGestureHandler.onSettingsChanged();
+    }
+
     public void setAccessibilityButtonState(final boolean visible, final boolean longClickable) {
         mLongClickableAccessibilityButton = longClickable;
         getAccessibilityButton().setLongClickable(longClickable);
