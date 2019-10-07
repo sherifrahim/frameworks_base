@@ -6086,6 +6086,20 @@ public final class Settings {
         public static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
 
         /**
+         * Whether to enable DOZE only when charging
+         * @hide
+         */
+        @Readable
+        public static final String DOZE_ON_CHARGE = "doze_on_charge";
+
+        /**
+         * hidden stting of the current atate of DOZE only when charging
+         * @hide
+         */
+        @Readable
+        public static final String DOZE_ON_CHARGE_NOW = "doze_on_charge_now";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
