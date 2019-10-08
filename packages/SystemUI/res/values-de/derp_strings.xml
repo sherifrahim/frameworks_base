@@ -187,7 +187,7 @@
     <string name="quick_settings_sound_label">Ton</string>
     <string name="quick_settings_sound_ring">Klingeln</string>
     <string name="quick_settings_sound_vibrate">Vibrieren</string>
-    <string name="quick_settings_sound_dnd">Bitte nicht stören</string>
+    <string name="quick_settings_sound_mute">Stumm</string>
 
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
