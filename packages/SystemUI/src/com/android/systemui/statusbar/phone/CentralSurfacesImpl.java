@@ -174,6 +174,7 @@ import com.android.systemui.fragments.ExtensionFragmentListener;
 import com.android.systemui.fragments.FragmentHostManager;
 import com.android.systemui.fragments.FragmentService;
 import com.android.systemui.keyguard.KeyguardService;
+import com.android.systemui.keyguard.KeyguardSliceProvider;
 import com.android.systemui.keyguard.KeyguardUnlockAnimationController;
 import com.android.systemui.keyguard.KeyguardViewMediator;
 import com.android.systemui.keyguard.ScreenLifecycle;
@@ -4409,6 +4410,9 @@ public class CentralSurfacesImpl extends CoreStartable implements
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_MEDIA_BLUR),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.PULSE_ON_NEW_TRACKS),
+                    true, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4417,17 +4421,31 @@ public class CentralSurfacesImpl extends CoreStartable implements
             if (uri.equals(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_MEDIA_BLUR))) {
                 setLockScreenMediaBlurLevel();
+            } else if (uri.equals(Settings.Secure.getUriFor(
+                    Settings.Secure.PULSE_ON_NEW_TRACKS))) {
+                setPulseOnNewTracks();
             }
         }
 
         public void update() {
             setLockScreenMediaBlurLevel();
+            setPulseOnNewTracks();
         }
     }
 
     private void setLockScreenMediaBlurLevel() {
         if (mMediaManager != null) {
             mMediaManager.setLockScreenMediaBlurLevel();
+        }
+    }
+
+    private void setPulseOnNewTracks() {
+        boolean showPulseOnNewTracks = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.PULSE_ON_NEW_TRACKS, 1,
+                UserHandle.USER_CURRENT) == 1;
+        KeyguardSliceProvider sliceProvider = KeyguardSliceProvider.getAttachedInstance();
+        if (sliceProvider != null) {
+                sliceProvider.setPulseOnNewTracks(showPulseOnNewTracks);
         }
     }
 

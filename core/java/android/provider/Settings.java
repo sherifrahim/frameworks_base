@@ -12021,6 +12021,12 @@ public final class Settings {
                 "quick_settings_tiles_anim_interpolator";
 
         /**
+         * Whether to pulse ambient on new music tracks
+         * @hide
+         */
+        public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
+
+        /**
          * Pulse navbar music visualizer
          * @hide
          */
