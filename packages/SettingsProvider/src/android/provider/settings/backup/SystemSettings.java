@@ -102,5 +102,6 @@ public class SystemSettings {
         Settings.System.SHOW_AUTO_BRIGHTNESS_BUTTON,
         Settings.System.BRIGHTNESS_SLIDER_POSITION,
         Settings.System.QS_FOOTER_TEXT_SHOW,
+        Settings.System.QS_FOOTER_TEXT_STRING,
     };
 }
