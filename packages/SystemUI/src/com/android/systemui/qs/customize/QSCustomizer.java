@@ -78,7 +78,7 @@ public class QSCustomizer extends LinearLayout {
                 getResources().getDrawable(value.resourceId, mContext.getTheme()));
 
         SpannableString resetText = new SpannableString(
-                mContext.getString(com.android.internal.R.string.reset));
+                mContext.getString(R.string.reset_customizer));
         resetText.setSpan(new ForegroundColorSpan(isNightMode() ?
                 Color.WHITE : Color.BLACK), 0, resetText.length(), 0);
         toolbar.getMenu().add(Menu.NONE, MENU_RESET, 0, resetText);

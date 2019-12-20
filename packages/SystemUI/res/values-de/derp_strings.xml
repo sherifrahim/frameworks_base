@@ -236,4 +236,8 @@
 
     <!-- Google Lens Screenshot string -->
     <string name="lens_unavailable">Google Lens ist nicht installiert</string>
+
+    <!-- QS customizer -->
+    <string name="reset_customizer">Reihenfolge zurücksetzen</string>
+
 </resources>
