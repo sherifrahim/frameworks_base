@@ -52,6 +52,7 @@
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Current</string>
     <string name="global_action_users">Users</string>
+    <string name="global_action_panic">Panic trigger</string>
 
     <!-- Power menu controls -->
     <string name="quick_controls_subtitle">Add controls for your connected devices</string>

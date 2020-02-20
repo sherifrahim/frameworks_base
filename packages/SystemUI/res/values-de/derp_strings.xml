@@ -37,6 +37,11 @@
     <string name="global_action_restart_download_progress">In Download-Modus neustarten\u2026</string>
     <string name="global_action_restart_fastboot_progress">Neustart in den Fastbootd-Modus\u2026</string>
 
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Aktuell</string>
+    <string name="global_action_users">Benutzer</string>
+    <string name="global_action_panic">Panikauslöser</string>
+
     <!-- Power menu controls -->
     <string name="quick_controls_subtitle">Karten für deine verbundenen Geräte hinzufügen</string>
 
