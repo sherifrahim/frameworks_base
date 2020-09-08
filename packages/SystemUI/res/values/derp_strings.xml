@@ -56,6 +56,9 @@
     <!-- Power menu controls -->
     <string name="quick_controls_subtitle">Add controls for your connected devices</string>
 
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Anti flicker</string>
+
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc" translatable="false">NFC</string>
 
