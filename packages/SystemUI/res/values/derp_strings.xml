@@ -56,4 +56,10 @@
     <!-- Power menu controls -->
     <string name="quick_controls_subtitle">Add controls for your connected devices</string>
 
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc" translatable="false">NFC</string>
+
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc" translatable="false">NFC</string>
+
 </resources>
