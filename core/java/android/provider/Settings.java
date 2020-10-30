@@ -6040,6 +6040,22 @@ public final class Settings {
          */
         public static final String FORCE_SHOW_NAVBAR = "force_show_navbar";
 
+	/**
+         * Adaptive playback
+         * Automatically pause media when the volume is muted and
+         * will resume automatically when volume is restored.
+         *   0 = disabled
+         *   1 = enabled
+         * @hide
+         */
+        public static final String ADAPTIVE_PLAYBACK_ENABLED = "adaptive_playback_enabled";
+
+        /**
+         * Adaptive playback's timeout in ms
+         * @hide
+         */
+        public static final String ADAPTIVE_PLAYBACK_TIMEOUT = "adaptive_playback_timeout";
+
         /**
          * Whether the phone ringtone should be played in an increasing manner
          * 0 = 0ff, 1 = on
