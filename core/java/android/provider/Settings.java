@@ -6343,6 +6343,24 @@ public final class Settings {
         public static final String SENSOR_BLOCKED_APP_DUMMY = "sensor_blocked_app_dummy";
 
         /**
+         * Whether to enable PULSE Edge lights
+         * @hide
+         */
+        public static final String AMBIENT_NOTIFICATION_LIGHT = "ambient_notification_light";
+
+        /**
+         * @hide
+         */
+        public static final String AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC = "ambient_notification_light_automatic";
+
+        /**
+         * helper setting to contain the current pulse reason so we can check
+         * if it has been triggered from a notification or a gesture
+         * @hide
+         */
+        public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -6498,6 +6516,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
             PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO_TEMP_UNIT);
             PRIVATE_SETTINGS.add(SENSOR_BLOCK);
+            PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT);
+            PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC);
         }
 
         /**

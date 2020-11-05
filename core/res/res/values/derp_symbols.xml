@@ -165,4 +165,7 @@
   <!-- Sensor block -->
   <java-symbol type="array" name="config_blockPackagesSensorDrain" />
 
+  <!-- Horizon Light -->
+  <java-symbol type="integer" name="config_AmbientPulseLightColor" />
+
 </resources>
