@@ -94,5 +94,6 @@ public class SystemSettings {
         Settings.System.FLASHLIGHT_ON_CALL_IGNORE_DND,
         Settings.System.FLASHLIGHT_ON_CALL_RATE,
         Settings.System.LOCKSCREEN_BATTERY_INFO,
+        Settings.System.LOCKSCREEN_BATTERY_INFO_TEMP_UNIT,
     };
 }
