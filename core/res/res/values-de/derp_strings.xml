@@ -51,4 +51,10 @@
     <string name="url_copy_success">URL erfolgreich kopiert</string>
     <string name="url_copy_failed">Beim Hochladen des Protokolls zu Memochō ist ein Fehler aufgetreten</string>
 
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Schlafmodus</string>
+    <string name="sleep_mode_notification_title">Schlafmodus aktiviert</string>
+    <string name="sleep_mode_notification_content">Antippen um den Schlafmodus zu beenden</string>
+    <string name="sleep_mode_enabled_toast">Schlafmodus aktiviert</string>
+    <string name="sleep_mode_disabled_toast">Schlafmodus ausgeschaltet</string>
 </resources>
