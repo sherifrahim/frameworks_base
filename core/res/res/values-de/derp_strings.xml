@@ -61,4 +61,8 @@
     <!-- Face unlock -->
     <string name="face_unlock_disabled_idle">Gesichtserkennung wegen Inaktivität deaktiviert</string>
 
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">SystemUI-Neustart erforderlich</string>
+    <string name="systemui_restart_message">Damit alle Änderungen wirksam werden, ist ein Neustart der SystemUI erforderlich. SystemUI jetzt neu starten?</string>
+
 </resources>
