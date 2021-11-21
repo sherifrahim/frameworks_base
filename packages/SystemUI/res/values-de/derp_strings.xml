@@ -132,4 +132,12 @@
     <string name="quick_settings_location_secondary_high_accuracy">Hohe Genauigkeit</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Standortdienste: Hohe Genauigkeit.</string>
 
+    <!-- Screenrecord -->
+    <string name="screenrecord_stopdot_label">Stopppunkt anzeigen</string>
+    <string name="screenrecord_stopdot_summary">Gedrückthalten zum Verschieben</string>
+    <string name="screenrecord_lowquality_label">Geringere Qualität</string>
+    <string name="screenrecord_lowquality_summary">Zum Verringern der Dateigröße</string>
+    <string name="screenrecord_longer_timeout_switch_label">Max. Dateigröße erhöhen</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Größe der Aufnahme auf 15 GB begrenzen</string>
+
 </resources>
