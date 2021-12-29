@@ -179,4 +179,7 @@
   <java-symbol type="string" name="sleep_mode_enabled_toast" />
   <java-symbol type="string" name="sleep_mode_disabled_toast" />
 
+  <!-- Whether to cancel fingerprint operation if not idle -->
+  <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
+
 </resources>
