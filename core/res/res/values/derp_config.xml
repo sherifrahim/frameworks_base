@@ -318,4 +318,7 @@
   <!-- Default value for Horizon light color (Blue) -->
   <integer name="config_AmbientPulseLightColor">0x3980FF</integer>
 
+  <!-- Whether to cancel fingerprint operation if not idle -->
+  <bool name="config_fpCancelIfNotIdle">false</bool>
+
 </resources>
