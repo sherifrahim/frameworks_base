@@ -48,6 +48,7 @@ import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.DreamTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
+import com.android.systemui.qs.tiles.GloveModeTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
@@ -142,6 +143,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<DerpSpaceTile> mDerpSpaceTileProvider;
     private final Provider<SleepModeTile> mSleepModeTileProvider;
     private final Provider<PreferredNetworkTile> mPreferredNetworkTileProvider;
+    private final Provider<GloveModeTile> mGloveModeTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -201,7 +203,9 @@ public class QSFactoryImpl implements QSFactory {
             Provider<VolumeTile> volumeTileProvider,
             Provider<DerpSpaceTile> derpSpaceTileProvider,
             Provider<SleepModeTile> sleepModeTileProvider,
-            Provider<PreferredNetworkTile> preferredNetworkTileProvider) {
+            Provider<PreferredNetworkTile> preferredNetworkTileProvider,
+            Provider<GloveModeTile> gloveModeTileProvider) {
+
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -257,6 +261,7 @@ public class QSFactoryImpl implements QSFactory {
         mDerpSpaceTileProvider = derpSpaceTileProvider;
         mSleepModeTileProvider = sleepModeTileProvider;
         mPreferredNetworkTileProvider = preferredNetworkTileProvider;
+        mGloveModeTileProvider = gloveModeTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -376,6 +381,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mSleepModeTileProvider.get();
             case "preferred_network":
                 return mPreferredNetworkTileProvider.get();
+            case "glovemode":
+                return mGloveModeTileProvider.get();
         }
 
         // Custom tiles
