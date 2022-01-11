@@ -222,5 +222,6 @@ public class SecureSettings {
         Settings.Secure.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT,
         Settings.Secure.POWER_MENU_HIDE_ON_SECURE,
         Settings.Secure.DISABLE_SECURE_TILES_ON_LOCKSCREEN,
+        Settings.Secure.SECURE_LOCKSCREEN_QS_DISABLED,
     };
 }
