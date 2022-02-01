@@ -67,4 +67,7 @@
 
     <!-- Vendor mismatch fingerprint warning [CHAR LIMIT=NONE] -->
     <string name="system_error_vendorprint">Das verwendete Vendor-Image stimmt nicht mit dem des Stand des Systems überein. Bitte das <xliff:g id="string">%s</xliff:g> Vendor-Image für ihr Gerät flashen.</string>
+
+    <!-- App lock -->
+    <string name="unlock_application">Entsperre <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
