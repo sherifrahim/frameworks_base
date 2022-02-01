@@ -26,9 +26,14 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.om.IOverlayManager;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.graphics.drawable.Icon;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -130,6 +135,7 @@ public class NavigationBarInflaterView extends FrameLayout
 
     private int mHomeHandleWidthMode = 0;
 
+    private CustomSettingsObserver mCustomSettingsObserver;
     public NavigationBarInflaterView(Context context, AttributeSet attrs) {
         super(context, attrs);
         createInflaters();
@@ -138,6 +144,7 @@ public class NavigationBarInflaterView extends FrameLayout
         mNavBarMode = controller.addListener(this);
         mHomeHandleWidthMode = controller.getNavigationHandleWidthMode();
         mContentResolver = context.getContentResolver();
+        mCustomSettingsObserver = new CustomSettingsObserver();
     }
 
     @VisibleForTesting
@@ -191,6 +198,7 @@ public class NavigationBarInflaterView extends FrameLayout
 
     @Override
     protected void onAttachedToWindow() {
+        mCustomSettingsObserver.observe();
         super.onAttachedToWindow();
         Dependency.get(TunerService.class).addTunable(this, NAV_BAR_INVERSE);
         Dependency.get(TunerService.class).addTunable(this, KEY_NAVIGATION_HINT);
@@ -210,6 +218,7 @@ public class NavigationBarInflaterView extends FrameLayout
 
     @Override
     protected void onDetachedFromWindow() {
+        mCustomSettingsObserver.stop();
         Dependency.get(NavigationModeController.class).removeListener(this);
         Dependency.get(TunerService.class).removeTunable(this);
         super.onDetachedFromWindow();
@@ -615,6 +624,33 @@ public class NavigationBarInflaterView extends FrameLayout
 
     private static float convertDpToPx(Context context, float dp) {
         return dp * context.getResources().getDisplayMetrics().density;
+    }
+
+    private class CustomSettingsObserver extends ContentObserver {
+
+        CustomSettingsObserver() {
+            super(new Handler(Looper.getMainLooper()));
+        }
+
+        void observe() {
+            final ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.GESTURE_NAVBAR_RADIUS),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        void stop() {
+            mContext.getContentResolver().unregisterContentObserver(this);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.GESTURE_NAVBAR_RADIUS))) {
+                clearViews();
+                inflateLayout(getDefaultLayout());
+            }
+        }
     }
 
     public void dump(PrintWriter pw) {
