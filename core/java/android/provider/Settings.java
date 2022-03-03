@@ -6240,6 +6240,12 @@ public final class Settings {
         public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
 
         /**
+         * Whether do haptic feedback on changed slider value
+         * @hide
+         */
+        public static final String HAPTIC_ON_SLIDER = "haptic_on_slider";
+
+        /**
          * Whether to display 4G icon instead LTE
          * @hide
          */

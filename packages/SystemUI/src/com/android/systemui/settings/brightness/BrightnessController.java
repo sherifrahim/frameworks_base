@@ -36,6 +36,8 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.service.vr.IVrManager;
 import android.service.vr.IVrStateCallbacks;
@@ -81,6 +83,10 @@ public class BrightnessController implements ToggleSlider.Listener, MirroredBrig
     private final Handler mBackgroundHandler;
     private final BrightnessObserver mBrightnessObserver;
     private final AutoBrightnessController mAutoBrightnessController;
+
+    private Vibrator mVibrator;
+
+    private float last_val = -1;
 
     private final DisplayListener mDisplayListener = new DisplayListener() {
         @Override
@@ -310,6 +316,9 @@ public class BrightnessController implements ToggleSlider.Listener, MirroredBrig
         mDisplayManager = context.getSystemService(DisplayManager.class);
         mVrManager = IVrManager.Stub.asInterface(ServiceManager.getService(
                 Context.VR_SERVICE));
+
+        mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+
     }
 
     public void registerCallbacks() {
@@ -389,6 +398,16 @@ public class BrightnessController implements ToggleSlider.Listener, MirroredBrig
 
     private void setBrightness(float brightness) {
         mDisplayManager.setTemporaryBrightness(mDisplayId, brightness);
+        if (brightness != last_val) {
+            if (Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.HAPTIC_FEEDBACK_ENABLED, 1) != 0 &&
+                Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.HAPTIC_ON_SLIDER, 1) != 0) {
+                last_val = brightness;
+                AsyncTask.execute(() ->
+                        mVibrator.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_TICK)));
+            }
+        }
     }
 
     private void updateVrMode(boolean isEnabled) {
