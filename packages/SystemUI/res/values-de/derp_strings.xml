@@ -63,4 +63,7 @@
     <!-- Title of statusbar tuner -->
     <string name="status_bar_icons">Symbole in der Statusleiste</string>
 
+    <!-- Name of the roaming status bar icon. -->
+    <string name="status_bar_roaming">Roaming-Indikator</string>
+
 </resources>
