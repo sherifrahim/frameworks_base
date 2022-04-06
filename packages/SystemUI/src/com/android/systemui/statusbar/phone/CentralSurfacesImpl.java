@@ -506,6 +506,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
     DozeServiceHost mDozeServiceHost;
     private boolean mWakeUpComingFromTouch;
     private LightRevealScrim mLightRevealScrim;
+    private WiredChargingRippleController mChargingRippleAnimationController;
     private PowerButtonReveal mPowerButtonReveal;
 
     private final Object mQueueLock = new Object();
@@ -913,6 +914,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
         mDemoModeController = demoModeController;
         mNotificationIconAreaController = notificationIconAreaController;
         mBrightnessSliderFactory = brightnessSliderFactory;
+        mChargingRippleAnimationController = wiredChargingRippleController;
         mWallpaperController = wallpaperController;
         mOngoingCallController = ongoingCallController;
         mStatusBarSignalPolicy = statusBarSignalPolicy;
