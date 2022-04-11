@@ -59,6 +59,7 @@ import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.OneHandedModeTile;
 import com.android.systemui.qs.tiles.PowerShareTile;
 import com.android.systemui.qs.tiles.QRCodeScannerTile;
+import com.android.systemui.qs.tiles.PreferredNetworkTile;
 import com.android.systemui.qs.tiles.QuickAccessWalletTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.ReduceBrightColorsTile;
@@ -140,6 +141,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<VolumeTile> mVolumeTileProvider;
     private final Provider<DerpSpaceTile> mDerpSpaceTileProvider;
     private final Provider<SleepModeTile> mSleepModeTileProvider;
+    private final Provider<PreferredNetworkTile> mPreferredNetworkTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -198,7 +200,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<AutoBrightnessTile> autoBrightnessTileProvider,
             Provider<VolumeTile> volumeTileProvider,
             Provider<DerpSpaceTile> derpSpaceTileProvider,
-            Provider<SleepModeTile> sleepModeTileProvider) {
+            Provider<SleepModeTile> sleepModeTileProvider,
+            Provider<PreferredNetworkTile> preferredNetworkTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -253,6 +256,7 @@ public class QSFactoryImpl implements QSFactory {
         mVolumeTileProvider = volumeTileProvider;
         mDerpSpaceTileProvider = derpSpaceTileProvider;
         mSleepModeTileProvider = sleepModeTileProvider;
+        mPreferredNetworkTileProvider = preferredNetworkTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -370,6 +374,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mDerpSpaceTileProvider.get();
             case "sleep_mode":
                 return mSleepModeTileProvider.get();
+            case "preferred_network":
+                return mPreferredNetworkTileProvider.get();
         }
 
         // Custom tiles

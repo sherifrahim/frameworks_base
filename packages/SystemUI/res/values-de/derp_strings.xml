@@ -219,4 +219,10 @@
 
     <!-- Sleep Mode -->
     <string name="quick_settings_sleep_mode_label">Schlafmodus</string>
+
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Bevorzugtes Netzwerk</string>
+    <string name="quick_settings_preferred_network_lte">4G/LTE</string>
+    <string name="quick_settings_preferred_network_nr">5G/NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Nicht unterstützt</string>
 </resources>
