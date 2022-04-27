@@ -35,11 +35,13 @@ import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.text.TextUtils;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -240,5 +242,21 @@ public class derpUtils {
         TelephonyManager telephony =
                 (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return telephony != null && telephony.isVoiceCapable();
+    }
+
+
+    public static class QSLayoutUtils {
+
+        public static boolean getQSTileLabelHide(Context context) {
+            return Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.QS_TILE_LABEL_HIDE,
+                    0, UserHandle.USER_CURRENT) == 1;
+        }
+
+        public static boolean getQSTileVerticalLayout(Context context) {
+            return Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.QS_TILE_VERTICAL_LAYOUT,
+                    0, UserHandle.USER_CURRENT) == 1;
+        }
     }
 }
