@@ -230,4 +230,6 @@
     <string name="refresh_rate_tile_label">Refresh rate</string>
     <string name="auto_mode_label">Auto</string>
 
+    <!-- Autobrightness tile -->
+    <string name="quick_settings_autobrightness_label">Auto brightness</string>
 </resources>

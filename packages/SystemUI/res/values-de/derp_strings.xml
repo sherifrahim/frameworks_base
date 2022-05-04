@@ -200,4 +200,7 @@
     <!-- Refresh Rate Tile -->
     <string name="refresh_rate_tile_label">Aktualisierungsrate</string>
     <string name="auto_mode_label">Auto</string>
+
+    <!-- Autobrightness tile -->
+    <string name="quick_settings_autobrightness_label">Automatische Helligkeit</string>
 </resources>
