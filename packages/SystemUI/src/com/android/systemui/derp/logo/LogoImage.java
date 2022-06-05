@@ -47,18 +47,12 @@ public abstract class LogoImage extends ImageView {
     private boolean mAttached;
 
     private boolean mShowLogo;
-    private int mLogoColor;
-    private boolean mLogoColorAccent;
     public int mLogoPosition;
     private int mLogoStyle;
     private int mTintColor = Color.WHITE;
 
     private static final String STATUS_BAR_LOGO =
             Settings.System.STATUS_BAR_LOGO;
-    private static final String STATUS_BAR_LOGO_COLOR =
-            Settings.System.STATUS_BAR_LOGO_COLOR;
-    private static final String STATUS_BAR_LOGO_COLOR_ACCENT =
-            Settings.System.STATUS_BAR_LOGO_COLOR_ACCENT;
     private static final String STATUS_BAR_LOGO_POSITION =
             Settings.System.STATUS_BAR_LOGO_POSITION;
     private static final String STATUS_BAR_LOGO_STYLE =
@@ -74,12 +68,6 @@ public abstract class LogoImage extends ImageView {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(
                     Settings.System.getUriFor(STATUS_BAR_LOGO), false, this);
-            resolver.registerContentObserver(
-                    Settings.System.getUriFor(STATUS_BAR_LOGO_COLOR),
-                    false, this);
-            resolver.registerContentObserver(
-                    Settings.System.getUriFor(STATUS_BAR_LOGO_COLOR_ACCENT),
-                    false, this);
             resolver.registerContentObserver(
                     Settings.System.getUriFor(STATUS_BAR_LOGO_POSITION),
                     false, this);
@@ -137,7 +125,7 @@ public abstract class LogoImage extends ImageView {
 
     public void onDarkChanged(ArrayList<Rect> areas, float darkIntensity, int tint) {
         mTintColor = DarkIconDispatcher.getTint(areas, this, tint);
-        if (mShowLogo && !isLogoHidden() && mLogoColor == 0xFFFFFFFF) {
+        if (mShowLogo && !isLogoHidden()) {
             updateLogo();
         }
     }
@@ -224,24 +212,6 @@ public abstract class LogoImage extends ImageView {
                 drawable = mContext.getResources().getDrawable(R.drawable.ic_google);
                 break;
             case 26:
-                drawable = mContext.getResources().getDrawable(R.drawable.ic_human_male);
-                break;
-            case 27:
-                drawable = mContext.getResources().getDrawable(R.drawable.ic_human_female);
-                break;
-            case 28:
-                drawable = mContext.getResources().getDrawable(R.drawable.ic_human_male_female);
-                break;
-            case 29:
-                drawable = mContext.getResources().getDrawable(R.drawable.ic_gender_male);
-                break;
-            case 30:
-                drawable = mContext.getResources().getDrawable(R.drawable.ic_gender_female);
-                break;
-            case 31:
-                drawable = mContext.getResources().getDrawable(R.drawable.ic_gender_male_female);
-                break;
-            case 32:
                 drawable = mContext.getResources().getDrawable(R.drawable.ic_guitar_electric);
                 break;
         }
@@ -250,25 +220,13 @@ public abstract class LogoImage extends ImageView {
 
         clearColorFilter();
 
-        if (mLogoColorAccent) {
-            setColorFilter(Utils.getColorAttrDefaultColor(mContext, android.R.attr.colorAccent),PorterDuff.Mode.SRC_IN);
-        } else {
-            if (mLogoColor == 0xFFFFFFFF) {
-                drawable.setTint(mTintColor);
-            } else {
-                setColorFilter(mLogoColor, PorterDuff.Mode.SRC_IN);
-            }
-	      }
+        drawable.setTint(mTintColor);
         setImageDrawable(drawable);
     }
 
     public void updateSettings() {
         mShowLogo = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_LOGO, 0) != 0;
-        mLogoColor = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_LOGO_COLOR, 0xFFFFFFFF);
-        mLogoColorAccent = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_LOGO_COLOR_ACCENT, 0) != 0;
         mLogoPosition = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_LOGO_POSITION, 0);
         mLogoStyle = Settings.System.getInt(mContext.getContentResolver(),
