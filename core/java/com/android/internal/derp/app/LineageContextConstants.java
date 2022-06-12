@@ -50,4 +50,11 @@ public final class LineageContextConstants {
      */
     public static final String LINEAGE_LIVEDISPLAY_SERVICE = "lineagelivedisplay";
 
+    /**
+     * Update power menu (GlobalActions)
+     *
+     * @hide
+     */
+    public static final String LINEAGE_GLOBAL_ACTIONS_SERVICE = "lineageglobalactions";
+
 }
