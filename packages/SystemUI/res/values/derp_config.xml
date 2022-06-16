@@ -29,7 +29,7 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_extra" translatable="false">
-        ambient_display,aod,autobrightness,caffeine,compass,dataswitch,derpspace,glovemode,heads_up,livedisplay,reading_mode,anti_flicker,reboot,refresh_rate,powershare,preferred_network,screenshot,sleep_mode,sound,soundsearch,sync,usb_tether,volume_panel,vpn
+        ambient_display,aod,autobrightness,caffeine,compass,dataswitch,derpspace,glovemode,heads_up,livedisplay,reading_mode,anti_flicker,reboot,refresh_rate,powershare,preferred_network,screenshot,sleep_mode,sound,soundsearch,sync,usb_tether,volume_panel,vpn,vpn_tethering
     </string>
 
     <!-- Doze: does the double tap sensor need a proximity check? -->

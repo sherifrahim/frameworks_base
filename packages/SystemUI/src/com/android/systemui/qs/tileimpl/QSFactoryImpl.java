@@ -76,6 +76,7 @@ import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.VpnTile;
+import com.android.systemui.qs.tiles.VPNTetheringTile;
 import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
@@ -146,6 +147,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<PreferredNetworkTile> mPreferredNetworkTileProvider;
     private final Provider<GloveModeTile> mGloveModeTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
+    private final Provider<VPNTetheringTile> mVPNTetheringTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -207,7 +209,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<SleepModeTile> sleepModeTileProvider,
             Provider<PreferredNetworkTile> preferredNetworkTileProvider,
             Provider<GloveModeTile> gloveModeTileProvider,
-            Provider<ScreenshotTile> screenshotTileProvider) {
+            Provider<ScreenshotTile> screenshotTileProvider,
+            Provider<VPNTetheringTile> vpnTetheringTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -265,6 +268,7 @@ public class QSFactoryImpl implements QSFactory {
         mPreferredNetworkTileProvider = preferredNetworkTileProvider;
         mGloveModeTileProvider = gloveModeTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
+        mVPNTetheringTileProvider = vpnTetheringTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -388,6 +392,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mGloveModeTileProvider.get();
             case "screenshot":
                 return mScreenshotTileProvider.get();
+            case "vpn_tethering":
+                return mVPNTetheringTileProvider.get();
         }
 
         // Custom tiles
