@@ -12321,6 +12321,13 @@ public final class Settings {
         public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
         /**
+         *  Toggle the wallpaper zoom effects
+         *  0 = 0ff, 1 = on
+         * @hide
+         */
+        public static final String DISPLAY_SETTINGS_WALLPAPER_ZOOM = "display_settings_wallpaper_zoom";
+
+        /**
          * Control whether FLAG_SECURE is ignored for all windows.
          * @hide
          */
