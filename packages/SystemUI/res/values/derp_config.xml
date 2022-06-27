@@ -32,4 +32,6 @@
         ambient_display,caffeine,dataswitch,heads_up,livedisplay,reading_mode,anti_flicker,reboot,powershare,sync,usb_tether
     </string>
 
+    <!-- Doze: does the double tap sensor need a proximity check? -->
+    <bool name="doze_double_tap_proximity_check">false</bool>
 </resources>
