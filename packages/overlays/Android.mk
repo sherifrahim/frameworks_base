@@ -22,7 +22,7 @@ LOCAL_NOTICE_FILE := $(LOCAL_PATH)/../../NOTICE
 LOCAL_REQUIRED_MODULES := \
 	DisplayCutoutEmulationCornerOverlay \
 	DisplayCutoutEmulationDoubleOverlay \
-    DisplayCutoutEmulationHoleOverlay \
+	DisplayCutoutEmulationHoleOverlay \
 	DisplayCutoutEmulationTallOverlay \
 	DisplayCutoutEmulationWaterfallOverlay \
 	FontNotoSerifSourceOverlay \
@@ -61,17 +61,17 @@ LOCAL_REQUIRED_MODULES := \
 	IconPackRoundedSettingsOverlay \
 	IconPackRoundedSystemUIOverlay \
 	IconPackRoundedThemePickerOverlay \
-    IconPackOOSAndroidOverlay \
-    IconPackOOSLauncherOverlay \
-    IconPackOOSSettingsOverlay \
-    IconPackOOSSystemUIOverlay \
-    IconPackOOSThemePickerOverlay \
-    IconPackAcherusAndroidOverlay \
-    IconPackAcherusSettingsOverlay \
-    IconPackAcherusSystemUIOverlay \
-    IconPackOutlineAndroidOverlay \
-    IconPackOutlineSettingsOverlay \
-    IconPackOutlineSystemUIOverlay \
+        IconPackOOSAndroidOverlay \
+        IconPackOOSLauncherOverlay \
+        IconPackOOSSettingsOverlay \
+        IconPackOOSSystemUIOverlay \
+        IconPackOOSThemePickerOverlay \
+        IconPackAcherusAndroidOverlay \
+        IconPackAcherusSettingsOverlay \
+        IconPackAcherusSystemUIOverlay \
+        IconPackOutlineAndroidOverlay \
+        IconPackOutlineSettingsOverlay \
+        IconPackOutlineSystemUIOverlay \
 	IconPackXperiaAndroidOverlay \
 	IconPackXperiaSettingsOverlay \
 	IconPackXperiaSystemUIOverlay \
@@ -80,56 +80,57 @@ LOCAL_REQUIRED_MODULES := \
 	NavigationBarModeGesturalOverlayNarrowBack \
 	NavigationBarModeGesturalOverlayWideBack \
 	NavigationBarModeGesturalOverlayExtraWideBack \
-    qs_portrait_2x2 \
-    qs_portrait_2x3 \
-    qs_portrait_2x4 \
-    qs_portrait_2x5 \
-    qs_portrait_2x6 \
-    qs_portrait_3x2 \
-    qs_portrait_3x3 \
-    qs_portrait_3x4 \
-    qs_portrait_3x5 \
-    qs_portrait_3x6 \
-    qs_portrait_4x2 \
-    qs_portrait_4x3 \
-    qs_portrait_4x4 \
-    qs_portrait_4x5 \
-    qs_portrait_4x6 \
-    qs_portrait_5x2 \
-    qs_portrait_5x3 \
-    qs_portrait_5x4 \
-    qs_portrait_5x5 \
-    qs_portrait_5x6 \
-    qs_portrait_6x2 \
-    qs_portrait_6x3 \
-    qs_portrait_6x4 \
-    qs_portrait_6x5 \
-    qs_portrait_6x6 \
-    qqs_portrait_1x2 \
-    qqs_portrait_1x3 \
-    qqs_portrait_1x4 \
-    qqs_portrait_1x5 \
-    qqs_portrait_1x6 \
-    qqs_portrait_2x2 \
-    qqs_portrait_2x3 \
-    qqs_portrait_2x4 \
-    qqs_portrait_2x5 \
-    qqs_portrait_2x6 \
-    qqs_portrait_3x2 \
-    qqs_portrait_3x3 \
-    qqs_portrait_3x4 \
-    qqs_portrait_3x5 \
-    qqs_portrait_3x6 \
-    qqs_portrait_4x2 \
-    qqs_portrait_4x3 \
-    qqs_portrait_4x4 \
-    qqs_portrait_4x5 \
-    qqs_portrait_4x6 \
-    qqs_portrait_5x2 \
-    qqs_portrait_5x3 \
-    qqs_portrait_5x4 \
-    qqs_portrait_5x5 \
-    qqs_portrait_5x6 \
+        qs_portrait_2x2 \
+        qs_portrait_2x3 \
+        qs_portrait_2x4 \
+        qs_portrait_2x5 \
+        qs_portrait_2x6 \
+        qs_portrait_3x2 \
+        qs_portrait_3x3 \
+        qs_portrait_3x4 \
+        qs_portrait_3x5 \
+        qs_portrait_3x6 \
+        qs_portrait_4x2 \
+        qs_portrait_4x3 \
+        qs_portrait_4x4 \
+        qs_portrait_4x5 \
+        qs_portrait_4x6 \
+        qs_portrait_5x2 \
+        qs_portrait_5x3 \
+        qs_portrait_5x4 \
+        qs_portrait_5x5 \
+        qs_portrait_5x6 \
+        qs_portrait_6x2 \
+        qs_portrait_6x3 \
+        qs_portrait_6x4 \
+        qs_portrait_6x5 \
+        qs_portrait_6x6 \
+        qqs_portrait_1x2 \
+        qqs_portrait_1x3 \
+        qqs_portrait_1x4 \
+        qqs_portrait_1x5 \
+        qqs_portrait_1x6 \
+        qqs_portrait_2x2 \
+        qqs_portrait_2x3 \
+        qqs_portrait_2x4 \
+        qqs_portrait_2x5 \
+        qqs_portrait_2x6 \
+        qqs_portrait_3x2 \
+        qqs_portrait_3x3 \
+        qqs_portrait_3x4 \
+        qqs_portrait_3x5 \
+        qqs_portrait_3x6 \
+        qqs_portrait_4x2 \
+        qqs_portrait_4x3 \
+        qqs_portrait_4x4 \
+        qqs_portrait_4x5 \
+        qqs_portrait_4x6 \
+        qqs_portrait_5x2 \
+        qqs_portrait_5x3 \
+        qqs_portrait_5x4 \
+        qqs_portrait_5x5 \
+        qqs_portrait_5x6 \
+	NotchBarKillerOverlay \
 	preinstalled-packages-platform-overlays.xml
 
 include $(BUILD_PHONY_PACKAGE)
