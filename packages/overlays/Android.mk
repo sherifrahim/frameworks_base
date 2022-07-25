@@ -130,6 +130,7 @@ LOCAL_REQUIRED_MODULES := \
         qqs_portrait_5x4 \
         qqs_portrait_5x5 \
         qqs_portrait_5x6 \
+	NotchBarKillerLeftrOverlay \
 	NotchBarKillerOverlay \
 	preinstalled-packages-platform-overlays.xml
 
