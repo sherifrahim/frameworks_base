@@ -176,6 +176,7 @@ public final class BatteryService extends SystemService {
 
     private boolean mWarpCharger;
     private boolean mLastWarpCharger;
+    private String mOpWarpChargerPath;
 
     private boolean mVoocCharger;
     private boolean mLastVoocCharger;
@@ -830,8 +831,9 @@ public final class BatteryService extends SystemService {
     }
 
     private boolean isWarpCharger() {
+        mOpWarpChargerPath = mContext.getResources().getString(com.android.internal.R.string.config_opWarpChargerStatusPaths);
         try {
-            FileReader file = new FileReader("/sys/class/power_supply/battery/fastchg_status");
+            FileReader file = new FileReader(mOpWarpChargerPath);
             BufferedReader br = new BufferedReader(file);
             String state = br.readLine();
             br.close();
