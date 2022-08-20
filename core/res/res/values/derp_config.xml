@@ -331,4 +331,7 @@
 
   <!-- Whether or not we should show vendor mismatch message -->
   <bool name="config_show_vendor_mismatch_message">false</bool>
+
+  <!-- Parallel space max count. Should overlay according to device performance. -->
+  <integer name="config_parallelSpaceMaxCount">9</integer>
 </resources>
