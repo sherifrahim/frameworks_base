@@ -35,6 +35,7 @@ import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Trace;
 import android.os.UserHandle;
+import android.os.VibrationEffect;
 import android.provider.Settings;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
@@ -55,6 +56,7 @@ import com.android.internal.logging.UiEvent;
 import com.android.internal.logging.UiEventLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.ExpandHelper;
+import com.android.systemui.Dependency;
 import com.android.systemui.Gefingerpoken;
 import com.android.systemui.R;
 import com.android.systemui.SwipeHelper;
@@ -78,6 +80,7 @@ import com.android.systemui.statusbar.NotificationShelfController;
 import com.android.systemui.statusbar.RemoteInputController;
 import com.android.systemui.statusbar.StatusBarState;
 import com.android.systemui.statusbar.SysuiStatusBarStateController;
+import com.android.systemui.statusbar.VibratorHelper;
 import com.android.systemui.statusbar.notification.DynamicPrivacyController;
 import com.android.systemui.statusbar.notification.LaunchAnimationParameters;
 import com.android.systemui.statusbar.notification.NotificationActivityStarter;
@@ -171,6 +174,10 @@ public class NotificationStackScrollLayoutController {
     private final StackStateLogger mStackStateLogger;
     private final NotificationStackScrollLogger mLogger;
     private final GroupExpansionManager mGroupExpansionManager;
+
+    private static final VibrationEffect EFFECT_CLICK =
+            VibrationEffect.createPredefined(VibrationEffect.EFFECT_CLICK);
+    private VibratorHelper mVibratorHelper;
 
     private NotificationStackScrollLayout mView;
     private boolean mFadeNotificationsOnDismiss;
@@ -723,6 +730,7 @@ public class NotificationStackScrollLayoutController {
         mKeyguardBypassController
                 .registerOnBypassStateChangedListener(mView::setKeyguardBypassEnabled);
         mView.setManageButtonClickListener(v -> {
+            mVibratorHelper.vibrate(EFFECT_CLICK);
             if (mNotificationActivityStarter != null) {
                 mNotificationActivityStarter.startHistoryIntent(v, mView.isHistoryShown());
             }
@@ -784,6 +792,8 @@ public class NotificationStackScrollLayoutController {
 
         mGroupExpansionManager.registerGroupExpansionChangeListener(
                 (changedRow, expanded) -> mView.onGroupExpandChanged(changedRow, expanded));
+
+        mVibratorHelper = Dependency.get(VibratorHelper.class);
     }
 
     private boolean isInVisibleLocation(NotificationEntry entry) {
