@@ -233,4 +233,7 @@
        pulsating and RGB control would set this config to 75. -->
   <integer name="config_deviceLightCapabilities">8</integer>
 
+  <!-- Wether to handle audio direction changes between major call states -->
+  <bool name="config_handleAudioDirectionChangesBetweenCallStateChanges">true</bool>
+
 </resources>
