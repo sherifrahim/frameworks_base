@@ -91,7 +91,10 @@ public final class ParallelSpaceManagerService extends SystemService {
         "com.google.android.projection.gearhead",
         "com.google.android.syncadapters.calendar",
         "com.google.android.syncadapters.contacts",
-        "com.google.android.apps.wellbeing"
+        "com.google.android.apps.wellbeing",
+        "com.google.android.syncadapters.contacts",
+        "com.google.android.soundpicker",
+        "com.google.android.settings.intelligence"
     };
 
     /**
@@ -102,7 +105,8 @@ public final class ParallelSpaceManagerService extends SystemService {
         // For granting permissions.
         "com.android.settings",
         // For managing files.
-        "com.android.documentsui"
+        "com.android.documentsui",
+        "com.android.google.documentsui"
     );
 
     private static final List<String> SPACE_BLACKLIST_PACKAGES = Arrays.asList(
