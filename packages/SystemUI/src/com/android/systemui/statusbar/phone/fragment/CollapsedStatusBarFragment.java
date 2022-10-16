@@ -511,6 +511,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             // We are in the middle of a system status event animation, which will animate the
             // alpha (but not the visibility). Allow the view to become visible again
             mEndSideContent.setVisibility(View.VISIBLE);
+            mStatusBarLogoRight.setVisibility(View.VISIBLE);
         }
     }
 
