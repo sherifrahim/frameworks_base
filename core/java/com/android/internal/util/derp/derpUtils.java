@@ -83,6 +83,18 @@ public class derpUtils {
         return isPackageInstalled(context, pkg, true);
     }
 
+    public static boolean isPackageAvailable(Context context, String packageName) {
+        final PackageManager pm = context.getPackageManager();
+        try {
+            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            int enabled = pm.getApplicationEnabledSetting(packageName);
+            return enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED &&
+                enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
+        } catch (NameNotFoundException e) {
+            return false;
+        }
+    }
+
     // Method to turn off the screen
     public static void switchScreenOff(Context ctx) {
         PowerManager pm = (PowerManager) ctx.getSystemService(Context.POWER_SERVICE);
