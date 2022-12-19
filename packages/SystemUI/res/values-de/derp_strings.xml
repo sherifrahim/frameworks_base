@@ -243,4 +243,7 @@
     <!-- Glove Mode Tile -->
     <string name="quick_settings_glove_mode_label">Glove-Modus</string>
 
+    <!-- Screenshot Tile -->
+    <string name="screenshot_long_press">Lang drücken - ausgewählter Bereich</string>
+
 </resources>

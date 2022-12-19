@@ -274,4 +274,7 @@
     <!-- Glove Mode Tile -->
     <string name="quick_settings_glove_mode_label">Glove Mode</string>
 
+    <!-- Screenshot Tile -->
+    <string name="screenshot_long_press">Long press - selected region</string>
+
 </resources>
