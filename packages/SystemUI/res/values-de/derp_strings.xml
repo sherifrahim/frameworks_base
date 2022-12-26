@@ -55,5 +55,6 @@
     <string name="qs_data_switch_toast_1">Derzeit ist nur eine SIM-Karte eingelegt</string>
     <string name="qs_data_switch_changed_1">Wechsel die Daten SIM auf SIM 1.</string>
     <string name="qs_data_switch_changed_2">Wechsel die Daten SIM auf SIM 2.</string>
+    <string name="qs_data_sim_none">Keine SIM-Karte</string>
 
 </resources>
